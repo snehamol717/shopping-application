@@ -22,3 +22,4 @@ data "aws_ami" "application_image" {
     name   = "tag:Project"
     values = [ var.var.project_name]
   }
+}
