@@ -1,6 +1,6 @@
 variable "aws_region" {
   type        = string
-  description = "My aws region name"
+  description = "My AWS region name"
 }
 
 variable "project_name" {
@@ -10,34 +10,34 @@ variable "project_name" {
 
 variable "project_environment" {
   type        = string
-  description = "My Project environment"
-}
-
-variable "vpc_cidr_block" {
-  type = string
-  description = "vpc cidr block"
-}
-
-variable "enable_nat_gateway" {
-  type = string
-  description = "vpc cidr block"
-}
-variable "webserver_ports" {
-  type = list(string)
-  description = "webserver sg ports"
-}
-
-variable "domain_name" {
-  type = string
-  description = "My route53 Domain Name"
-}
-
-variable "webserver_hostname" {
-  type = string
-  description = "My webserver hostname"
+  description = "My project environment"
 }
 
 variable "instance_type" {
   type        = string
   description = "My instance type"
+}
+
+variable "webserver_ports" {
+  type        = list(string)
+  description = "My webserver security group ports"
+}
+
+variable "enable_public_ip" {
+  type        = bool
+  description = "Whether the public IP should be enabled"
+}
+
+variable "domain_name" {
+  type        = string
+  description = "My Route53 domain name"
+}
+
+variable "webserver_hostname" {
+  type        = string
+  description = "My webserver hostname"
+}
+variable "enable_nat_gateway" {
+  description = "Enable or disable the NAT gateway"
+  type        = bool
 }

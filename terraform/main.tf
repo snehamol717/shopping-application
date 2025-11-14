@@ -7,6 +7,7 @@ resource "aws_key_pair" "authentication_key" {
   }
 }
 
+
 # Security Group
 resource "aws_security_group" "webserver" {
   name        = "${var.project_name}-${var.project_environment}-webserver"
@@ -44,7 +45,7 @@ resource "aws_instance" "webserver" {
 
   ami                    = data.aws_ami.application_image.image_id
   instance_type          = var.instance_type
-  key_name               = "mykey"
+  key_name               = aws_key_pair.authentication_key.key_name
   vpc_security_group_ids = [aws_security_group.webserver.id]
   tags = {
     Name = "webserver-${var.project_name}-${var.project_environment}"
